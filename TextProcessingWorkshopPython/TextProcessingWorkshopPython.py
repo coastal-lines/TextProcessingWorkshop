@@ -1,6 +1,7 @@
 from pyral import Rally, rallyWorkset
 from Rally.TestsAndFoldersActions import TestsAndFoldersActions
 import pickle
+from bs4 import BeautifulSoup
 
 #read creads
 #params = []
@@ -44,8 +45,10 @@ with open(r'C:\Temp2\New folder\DataVisualizationAndStatisticsForRally\Draft\all
 inputsList = []
 for tc in allTestCasesForSaveIntoFile:
     for input in tc.inputs:
-        inputsList.append(input)
-        print(input)
+        soup = BeautifulSoup(input)
+        cleanText = ''.join(soup.findAll(text=True))
+        inputsList.append(cleanText)
+        print(cleanText)
 
 #remove html tags from inputs
 
