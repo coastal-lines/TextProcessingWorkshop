@@ -40,4 +40,14 @@ allTestCasesForSaveIntoFile = None
 with open(r'C:\Temp2\New folder\DataVisualizationAndStatisticsForRally\Draft\allTestCasesForSaveIntoFile.data', 'rb') as f:
     allTestCasesForSaveIntoFile = pickle.load(f)
 
-e=0
+#create list of all Inputs
+inputsList = []
+for tc in allTestCasesForSaveIntoFile:
+    for input in tc.inputs:
+        inputsList.append(input)
+        print(input)
+
+#remove html tags from inputs
+
+
+t = 0
