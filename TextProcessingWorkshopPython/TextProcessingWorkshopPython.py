@@ -42,15 +42,18 @@ with open(r'C:\Temp2\New folder\DataVisualizationAndStatisticsForRally\Draft\all
     allTestCasesForSaveIntoFile = pickle.load(f)
 
 #create list of all Inputs
+#remove html tags from inputs
 inputsList = []
 for tc in allTestCasesForSaveIntoFile:
     for input in tc.inputs:
         soup = BeautifulSoup(input)
         cleanText = ''.join(soup.findAll(text=True))
+        cleanText = cleanText.rstrip()
+        #cleanText = cleanText.strip()
         inputsList.append(cleanText)
         print(cleanText)
 
-#remove html tags from inputs
+
 
 
 t = 0
