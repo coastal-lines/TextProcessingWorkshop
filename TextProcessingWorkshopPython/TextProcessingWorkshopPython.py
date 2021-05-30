@@ -1,5 +1,6 @@
 from pyral import Rally, rallyWorkset
 from Rally.TestsAndFoldersActions import TestsAndFoldersActions
+import pickle
 
 #read creads
 params = []
@@ -31,7 +32,12 @@ allTestCasesForSaveIntoFile = TestsAndFoldersActions().extractTestCasesFromFolde
 
 #save test cases into file
 with open(r'C:\Temp2\New folder\DataVisualizationAndStatisticsForRally\Draft\allTestCasesForSaveIntoFile.data', 'w+b') as file:
-    pickle.dump(self.allTestCasesForSaveIntoFile, file)
+    pickle.dump(allTestCasesForSaveIntoFile, file)
 print("Test cases were saved")
+
+#load test cases from file
+with open(r'C:\Temp2\New folder\DataVisualizationAndStatisticsForRally\Draft\allTestCasesForSaveIntoFile.data', 'rb') as f:
+    allTestCasesForSaveIntoFile = pickle.load(f)
+    r=0
 
 e=0
