@@ -48,12 +48,14 @@ for tc in allTestCasesForSaveIntoFile:
     for input in tc.inputs:
         soup = BeautifulSoup(input)
         cleanText = ''.join(soup.findAll(text=True))
-        cleanText = cleanText.rstrip()
-        #cleanText = cleanText.strip()
+        #cleanText = cleanText.rstrip()
+        #cleanText = cleanText.replace('\xa0', ' ')
         inputsList.append(cleanText)
         print(cleanText)
 
-
+#save input list into file
+with open(r'C:\Temp2\New folder\DataVisualizationAndStatisticsForRally\Draft\inputsList.data', 'w+b') as file:
+    pickle.dump(inputsList, file)
 
 
 t = 0
