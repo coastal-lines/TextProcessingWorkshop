@@ -63,7 +63,7 @@ class TestsAndFoldersActions():
     def extractTestCasesFromRootFolder(folder):
         if len(folder.TestCases) > 0:
             for testCase in folder.TestCases: 
-                print(testCase.Name)
+                #print(testCase.Name)
                 TestsAndFoldersActions.allTestCasesInFolderIncludeSubfolders.append(testCase)
                 TestsAndFoldersActions.allTC.append(testCase)
 
@@ -71,7 +71,7 @@ class TestsAndFoldersActions():
     def extractTestCasesFromFolder(folder):
         if len(folder.TestCases) > 0:
             for testCase in folder.TestCases: 
-                print(testCase.Name)
+                #print(testCase.Name)
                 TestsAndFoldersActions.allTestCasesInFolderIncludeSubfolders.append(testCase)
                 TestsAndFoldersActions.allTC.append(testCase)
         if len(folder.Children) > 0:
@@ -80,8 +80,8 @@ class TestsAndFoldersActions():
     @staticmethod
     def extractFolders(folders):
         for folder in folders:
-            print(folder.Name)
-            print("---")
+            #print(folder.Name)
+            #print("---")
             TestsAndFoldersActions.extractTestCasesFromFolder(folder)
 
     #find parent name by recursion
