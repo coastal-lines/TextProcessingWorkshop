@@ -1,3 +1,8 @@
+from pyral import Rally, rallyWorkset
+from Rally.TestsAndFoldersActions import TestsAndFoldersActions
+import pickle
+from bs4 import BeautifulSoup
+
 #read creads
 params = []
 with open(r'C:\Users\User\Desktop\!temp') as my_file:
@@ -43,6 +48,8 @@ for tc in allTestCasesForSaveIntoFile:
     for input in tc.inputs:
         soup = BeautifulSoup(input)
         cleanText = ''.join(soup.findAll(text=True))
+        cleanText = cleanText.replace(u'\xa0', ' ')
+        cleanText = cleanText.splitlines()
         inputsList.append(cleanText)
         print(cleanText)
 
