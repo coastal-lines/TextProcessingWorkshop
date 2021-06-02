@@ -12,3 +12,22 @@ for li in liList:
         continue
     textList.append(li.text)
 t=0
+
+
+
+#create list of all Inputs
+#remove html tags from inputs
+inputsList = []
+for tc in allTestCasesForSaveIntoFile:
+    for input in tc.inputs:
+        listOfInputsInsideOneStep = htmlParser(input)
+        inputsList.extend(listOfInputsInsideOneStep)
+
+
+saveLikeAText(inputsList)
+
+#save input list into file
+#with open(r'C:\Temp2\New folder\DataVisualizationAndStatisticsForRally\Draft\inputsList.data', 'w+b') as file:
+ #   pickle.dump(inputsList, file)
+
+#72 lines should be

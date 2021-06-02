@@ -19,7 +19,7 @@ def preparingData():
     rally.setProject(params[4].rstrip())
 
     #get information from root folder
-    testFolderRequest = rally.get('TestFolder', fetch=True, projectScopeDown=True, query='FormattedID = "' + "TF15986" + '"')
+    testFolderRequest = rally.get('TestFolder', fetch=True, projectScopeDown=True, query='FormattedID = "' + params[5].rstrip() + '"')
     testFolder = testFolderRequest.next()
 
     #get all test cases inside of root folder
@@ -67,27 +67,9 @@ def htmlParser(text):
 
     return listInputs
 
-#preparingData()
+preparingData()
 
 #load test cases from file
 allTestCasesForSaveIntoFile = None
 with open(r'C:\Temp2\New folder\DataVisualizationAndStatisticsForRally\Draft\allTestCasesForSaveIntoFile.data', 'rb') as f:
     allTestCasesForSaveIntoFile = pickle.load(f)
-
-#create list of all Inputs
-#remove html tags from inputs
-inputsList = []
-for tc in allTestCasesForSaveIntoFile:
-    if(tc.formattedID == "TC46956"):
-        for input in tc.inputs:
-            listOfInputsInsideOneStep = htmlParser(input)
-            inputsList.extend(listOfInputsInsideOneStep)
-
-
-saveLikeAText(inputsList)
-
-#save input list into file
-#with open(r'C:\Temp2\New folder\DataVisualizationAndStatisticsForRally\Draft\inputsList.data', 'w+b') as file:
- #   pickle.dump(inputsList, file)
-
-#72 lines should be
