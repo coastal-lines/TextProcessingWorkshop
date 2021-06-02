@@ -30,6 +30,9 @@
     <Compile Include="Temp.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Temp2.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="TextProcessingWorkshopPython.py" />
   </ItemGroup>
   <ItemGroup>

@@ -57,8 +57,10 @@ def htmlParser(text):
     for div in allDiv:
         listInputs.append(div.text)
 
-    #if():
-     #   listInputs.append(text)
+    if(allLi == [] and allSpan == [] and allDiv == []):
+        allP = data.find("body").findAll("p")
+        for p in allP:
+            listInputs.append(p.text)
 
     return listInputs
 
@@ -74,17 +76,18 @@ with open(r'C:\Temp2\New folder\DataVisualizationAndStatisticsForRally\Draft\all
 inputsList = []
 for tc in allTestCasesForSaveIntoFile:
     for input in tc.inputs:
+        print(tc.formattedID)
         listOfInputsInsideOneStep = htmlParser(input)
         
-        soup = BeautifulSoup(input)
-        cleanText = ''.join(soup.findAll(text=True))
-        cleanText = cleanText.replace(u'\xa0', ' ')
+        #soup = BeautifulSoup(input)
+        #cleanText = ''.join(soup.findAll(text=True))
+        #cleanText = cleanText.replace(u'\xa0', ' ')
         #splittedLines = []
         #if('\n' in cleanText):
             #   #splitString(cleanText)
           #  splittedLines = cleanText.splitlines()
          #   inputsList.append(splittedLines)
-        inputsList.append(cleanText)
+        #inputsList.append(cleanText)
         inputsList.extend(listOfInputsInsideOneStep)
         #print(cleanText)
 
