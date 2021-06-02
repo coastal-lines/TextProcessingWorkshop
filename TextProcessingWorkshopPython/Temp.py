@@ -19,7 +19,7 @@ def preparingData():
     rally.setProject(params[4].rstrip())
 
     #get information from root folder
-    testFolderRequest = rally.get('TestFolder', fetch=True, projectScopeDown=True, query='FormattedID = "' + "TF18438" + '"')
+    testFolderRequest = rally.get('TestFolder', fetch=True, projectScopeDown=True, query='FormattedID = "' + "TF15986" + '"')
     testFolder = testFolderRequest.next()
 
     #get all test cases inside of root folder
@@ -29,8 +29,6 @@ def preparingData():
     with open(r'C:\Temp2\New folder\DataVisualizationAndStatisticsForRally\Draft\allTestCasesForSaveIntoFile.data', 'w+b') as file:
         pickle.dump(allTestCasesForSaveIntoFile, file)
     print("Test cases were saved")
-
-
 
 def saveLikeAText(listInputs):
     textfile = open(r"C:\Temp2\New folder\DataVisualizationAndStatisticsForRally\Draft\inputsListTxt.txt", "w")
@@ -42,22 +40,27 @@ def htmlParser(text):
     listInputs = []
     data = BeautifulSoup(text)
 
-    #find all <li>
     allLi = data.find("body").findAll("li")
-    for li in allLi:
-        listInputs.append(li.text)
-
-    #span
     allSpan = data.find("body").findAll("span")
-    for span in allSpan:
-        listInputs.append(span.text)
-
-    #div
     allDiv = data.find("body").findAll("div")
-    for div in allDiv:
-        listInputs.append(div.text)
 
-    if(allLi == [] and allSpan == [] and allDiv == []):
+    if (allLi != []):
+        for li in allLi:
+            span = li.find_all("span")
+            if (span != [] and span[0].text != ""):
+                listInputs.append(li.getText())
+                continue
+            listInputs.append(li.text)
+
+    elif (allSpan != []):
+        for span in allSpan:
+            listInputs.append(span.text)
+
+    elif (allDiv != []):
+        for div in allDiv:
+            listInputs.append(div.text)
+
+    elif(allLi == [] and allSpan == [] and allDiv == []):
         allP = data.find("body").findAll("p")
         for p in allP:
             listInputs.append(p.text)
@@ -75,21 +78,11 @@ with open(r'C:\Temp2\New folder\DataVisualizationAndStatisticsForRally\Draft\all
 #remove html tags from inputs
 inputsList = []
 for tc in allTestCasesForSaveIntoFile:
-    for input in tc.inputs:
-        print(tc.formattedID)
-        listOfInputsInsideOneStep = htmlParser(input)
-        
-        #soup = BeautifulSoup(input)
-        #cleanText = ''.join(soup.findAll(text=True))
-        #cleanText = cleanText.replace(u'\xa0', ' ')
-        #splittedLines = []
-        #if('\n' in cleanText):
-            #   #splitString(cleanText)
-          #  splittedLines = cleanText.splitlines()
-         #   inputsList.append(splittedLines)
-        #inputsList.append(cleanText)
-        inputsList.extend(listOfInputsInsideOneStep)
-        #print(cleanText)
+    if(tc.formattedID == "TC46956"):
+        for input in tc.inputs:
+            listOfInputsInsideOneStep = htmlParser(input)
+            inputsList.extend(listOfInputsInsideOneStep)
+
 
 saveLikeAText(inputsList)
 
