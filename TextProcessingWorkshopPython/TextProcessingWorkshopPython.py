@@ -90,3 +90,4 @@ def prepareInputsList(allTestCasesForSaveIntoFile):
 allTestCasesForSaveIntoFile = loadTestCasesFromFile()
 inputsList = prepareInputsList(allTestCasesForSaveIntoFile)
 saveInputsIntoTextFile(inputsList)
+print("--- end ---")
