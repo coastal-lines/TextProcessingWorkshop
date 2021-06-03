@@ -117,7 +117,7 @@ def prepareInputsList(allTestCasesForSaveIntoFile):
     for tc in allTestCasesForSaveIntoFile:
         #inputsList.append(tc.formattedID)
         for input in tc.inputs:
-            #if(tc.formattedID == "TC999"):
+            if("[AUTOMATED]" in tc.name):
                 listOfInputsInsideOneStep = htmlParser(input)
                 inputsList.extend(listOfInputsInsideOneStep)
 
@@ -127,4 +127,4 @@ def prepareInputsList(allTestCasesForSaveIntoFile):
 allTestCasesForSaveIntoFile = loadTestCasesFromFile()
 inputsList = prepareInputsList(allTestCasesForSaveIntoFile)
 saveInputsIntoTextFile(inputsList)
-print("--- end ---")
+

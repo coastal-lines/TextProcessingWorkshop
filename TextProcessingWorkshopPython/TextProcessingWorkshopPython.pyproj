@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>541a0c07-72e3-466b-8ac1-43977b476684</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>TextProcessingWorkshopPython.py</StartupFile>
+    <StartupFile>WorkWithSentences.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -34,6 +34,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TextProcessingWorkshopPython.py" />
+    <Compile Include="WorkWithSentences.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Rally\" />
