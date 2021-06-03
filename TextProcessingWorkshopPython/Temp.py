@@ -67,7 +67,7 @@ def htmlParser(text):
 
     return listInputs
 
-preparingData()
+#preparingData()
 
 #load test cases from file
 allTestCasesForSaveIntoFile = None
