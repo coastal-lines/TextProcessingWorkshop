@@ -11,6 +11,26 @@ def loadTestCasesFromFile():
     return allTestCasesForSaveIntoFile
 
 def saveInputsIntoTextFile(listInputs):
+    #removing some of extra characters
+    position = -1
+    for line in listInputs:
+        position = position + 1
+
+        if(line == '\xa0'):
+            listInputs.pop(position)
+
+        if('\xa0' in line):
+            line = line.replace('\xa0', ' ')
+            listInputs[position] = line
+
+        #if('\n' in line):
+         #   line = " ".join(line.splitlines())
+          #  listInputs[position] = line
+
+        tempLine = line.strip()
+        if(len(tempLine) == 0):
+            listInputs.pop(position)
+
     textfile = open(r"C:\Temp2\New folder\DataVisualizationAndStatisticsForRally\Draft\inputsListTxt.txt", "w")
     for element in listInputs:
         textfile.write(element + "\n")
@@ -48,11 +68,14 @@ def htmlParser(text):
     listInputs = []
     data = BeautifulSoup(text)
 
+    parentTag = data.find("body").next.name
+
     allLi = data.find("body").findAll("li")
     allSpan = data.find("body").findAll("span")
     allDiv = data.find("body").findAll("div")
+    allP = data.find("body").findAll("p")
 
-    if (allLi != []):
+    if (parentTag == "li" and allLi != []):
         for li in allLi:
             span = li.find_all("span")
             if (span != [] and span[0].text != ""):
@@ -60,13 +83,26 @@ def htmlParser(text):
                 continue
             listInputs.append(li.text)
 
-    elif (allSpan != []):
-        for span in allSpan:
-            listInputs.append(span.text)
+    elif (parentTag == "span" and allSpan != []):
+        if(allDiv == []):
+            for span in allSpan:
+                u = data.findAll("u")
+                strong = data.findAll("strong")
+                if(u != [] or strong != []):
+                    listInputs.append(data.getText())
+                    break
+                listInputs.append(span.text)
 
-    elif (allDiv != []):
+    elif (parentTag == "div" and allDiv != []):
         for div in allDiv:
+            if(div.findAll("span") != []):
+                listInputs.append(data.getText())
+                break
             listInputs.append(div.text)
+
+    elif (parentTag == "p" and allP != []):
+            for p in allP:
+                listInputs.append(p.text)
 
     elif(allLi == [] and allSpan == [] and allDiv == []):
         allP = data.find("body").findAll("p")
@@ -79,8 +115,9 @@ def htmlParser(text):
 def prepareInputsList(allTestCasesForSaveIntoFile):
     inputsList = []
     for tc in allTestCasesForSaveIntoFile:
+        #inputsList.append(tc.formattedID)
         for input in tc.inputs:
-            if(tc.formattedID == "TC40919"):
+            #if(tc.formattedID == "TC999"):
                 listOfInputsInsideOneStep = htmlParser(input)
                 inputsList.extend(listOfInputsInsideOneStep)
 
