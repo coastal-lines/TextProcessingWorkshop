@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>541a0c07-72e3-466b-8ac1-43977b476684</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>TextProcessing\module1.py</StartupFile>
+    <StartupFile>TextProcessing\module2.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -35,6 +35,9 @@
     </Compile>
     <Compile Include="TextProcessingWorkshopPython.py" />
     <Compile Include="TextProcessing\module1.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TextProcessing\module2.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="WorkWithSentences-TextBlob.py" />
