@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>541a0c07-72e3-466b-8ac1-43977b476684</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>TextProcessing\module2.py</StartupFile>
+    <StartupFile>TextProcessing\module3 - Copy.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,9 +21,6 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="module1.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Rally\RallyTestCase.py">
       <SubType>Code</SubType>
     </Compile>
@@ -37,6 +34,8 @@
     <Compile Include="TextProcessing\module1.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TextProcessing\module3 - Copy.py" />
+    <Compile Include="TextProcessing\module3.py" />
     <Compile Include="TextProcessing\module2.py">
       <SubType>Code</SubType>
     </Compile>
