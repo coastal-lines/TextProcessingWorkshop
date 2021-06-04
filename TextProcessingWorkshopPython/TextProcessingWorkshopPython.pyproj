@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>541a0c07-72e3-466b-8ac1-43977b476684</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>WorkWithSentences.py</StartupFile>
+    <StartupFile>TextProcessing\module1.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -34,11 +34,16 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TextProcessingWorkshopPython.py" />
-    <Compile Include="WorkWithSentences.py">
+    <Compile Include="TextProcessing\module1.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WorkWithSentences-TextBlob.py" />
+    <Compile Include="WorkWithSentences-difflib.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="TextProcessing\" />
     <Folder Include="Rally\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
