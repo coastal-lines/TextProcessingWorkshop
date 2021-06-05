@@ -1,6 +1,8 @@
 from sklearn.feature_extraction.text import CountVectorizer
 
+#шаг 1
 #convert lines into vector arrays
+#перевод предложений в вектора
 
 text1 = "How to format my hard disk"
 text2 = "Hard disk format problems"
