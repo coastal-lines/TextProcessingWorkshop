@@ -14,8 +14,8 @@ X_train = vectorizer.fit_transform(posts)
 num_samples,num_features = X_train.shape
 #print("#samples: %d, #features: %d" % (num_samples, num_features))
 
-#new_post = "imaging databases"
-new_post = "elena"
+new_post = "imaging databases"
+#new_post = "elena"
 #use transform instead fit_transform for making array with zeros - иначе отбрасываются нули и в дальнейшем нельзя использовать вектора разного размера
 new_post_vec = vectorizer.transform([new_post])
 
