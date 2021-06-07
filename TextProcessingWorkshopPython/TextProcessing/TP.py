@@ -10,15 +10,17 @@ t3="Imaging databases provide storage capabilities."
 t4="Most imaging databases save images permanently."
 t5="Imaging databases store data."
 t6="Imaging databases store data. Imaging databases store data. Imaging databases store data."
-t7="Imaging databases"
-posts = [t1,t2,t3,t4,t5,t6,t7]
+t7="last name"
+t8="first name"
+t9="Im777777777777779009090909aging da0999999999tabases"
+posts = [t1,t2,t3,t4,t5,t6,t7,t8,t9]
 
 vectorizer = None
 
 #загрузка корпуса
 def loadInputs():
     corpus = []
-    with open(r"C:\Temp2\New folder\DataVisualizationAndStatisticsForRally\Draft\inputsListTxt.txt") as f:
+    with open(r"C:\Temp2\New folder\DataVisualizationAndStatisticsForRally\Draft\inputsListTxt2.txt") as f:
         corpus = f.read().splitlines()
 
     return corpus
@@ -93,7 +95,7 @@ posts = loadInputs()
 #cleanedCorpus = tokenize(posts)
 vectorizer = makeTFIDFVectorizer()
 x_train = tfidfVectorize(vectorizer, posts)
-newPost = "Praporshik Zadov"
+newPost = "900"
 doCompare(vectorizer, x_train, posts, newPost)
 
 t=0

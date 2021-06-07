@@ -2,19 +2,16 @@ from sklearn.feature_extraction.text import CountVectorizer
 import scipy as sp
 import sys
 
-t1="This is a toy post about machine learning. Actually, it contains not much interesting stuff."
-t2="Imaging databases provide storage capabilities."
-t3="Most imaging databases save images permanently."
-t4="Imaging databases store data."
-t5="Imaging databases store data. Imaging databases store data. Imaging databases store data."
+t1="This is a toy post about machine learning."
+t2="last name"
 
-posts = [t1,t2,t3,t4,t5]
+posts = [t1,t2]
 vectorizer = CountVectorizer(min_df=1)
 X_train = vectorizer.fit_transform(posts)
 num_samples,num_features = X_train.shape
 #print("#samples: %d, #features: %d" % (num_samples, num_features))
 
-new_post = "imaging databases"
+new_post = "zadov"
 #use transform instead fit_transform for making array with zeros - иначе отбрасываются нули и в дальнейшем нельзя использовать вектора разного размера
 new_post_vec = vectorizer.transform([new_post])
 
