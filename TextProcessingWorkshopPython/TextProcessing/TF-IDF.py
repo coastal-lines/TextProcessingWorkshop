@@ -5,6 +5,7 @@ import scipy as sp
 import sys
 
 vectorizer = None
+newPost = "lena boris 6776 erro bukvi"
 
 #загрузка корпуса
 def loadInputs():
@@ -35,7 +36,7 @@ def doCompare(vectorizer, x_train, corpus, newPost):
     newPostVect = tfidfVectorize(vectorizer, [newPost], False)
 
     results = []
-    value = 1
+    value = None
     position = None
     for i in range(x_train.shape[0]):
         if(newPost == corpus[i]):
@@ -50,14 +51,19 @@ def doCompare(vectorizer, x_train, corpus, newPost):
         results.append(result)
         print(str(result) + " ..... " + corpus[i])
 
+        if (i == 0):
+            value = result
+
         if result < value:
             value = result
             position = i
 
-    print("The most similar is: " + str(value) + " " + str(corpus[position]))
+        if (position == None):
+            position = 0
+
+    print("The most similar is: " + str(value) + " " + str(corpus[position]) + " | " + str(newPost))
 
 posts = loadInputs()
 vectorizer = makeTFIDFVectorizer()
 x_train = tfidfVectorize(vectorizer, posts)
-newPost = "finish test"
 doCompare(vectorizer, x_train, posts, newPost)
