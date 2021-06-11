@@ -5,7 +5,7 @@ import scipy as sp
 import sys
 
 vectorizer = None
-newPost = "lena boris 6776 erro bukvi"
+newPost = "last name"
 
 #загрузка корпуса
 def loadInputs():
@@ -67,3 +67,5 @@ posts = loadInputs()
 vectorizer = makeTFIDFVectorizer()
 x_train = tfidfVectorize(vectorizer, posts)
 doCompare(vectorizer, x_train, posts, newPost)
+
+#можно добавить проверку по каждому слову в найденном тексте и если слово есть, то убавлять от результата
