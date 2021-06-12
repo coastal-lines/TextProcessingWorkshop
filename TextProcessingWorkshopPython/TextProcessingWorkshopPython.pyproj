@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>541a0c07-72e3-466b-8ac1-43977b476684</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>TextProcessing\TF-IDF.py</StartupFile>
+    <StartupFile>TextProcessing\BOW.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -31,6 +31,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TextProcessingWorkshopPython.py" />
+    <Compile Include="TextProcessing\BOW.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="TextProcessing\module1.py">
       <SubType>Code</SubType>
     </Compile>
